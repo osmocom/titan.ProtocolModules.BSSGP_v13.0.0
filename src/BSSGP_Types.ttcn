@@ -9,7 +9,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  File:               BSSGP_Types.ttcn
-//  Rev:                R2A
+//  Rev:                R2B
 //  Prodnr:             CNL 113 833
 //  Contact:            http://ttcn.ericsson.se
 //  Reference:          3GPP TS 48.018 13.0.0
@@ -750,7 +750,7 @@ variant(downlinkEGPRS2) "BYTEORDER(last)";
 type record AccessCapAdditionsAfterRel7_BSSGP
 {
   AccessCapAdditionsRel8_BSSGP       accessCapAdditionsRel8,
-  AccessCapAdditionsAfterRel8_BSSGP  accessCapAdditionsAfterRel8
+  AccessCapAdditionsAfterRel8_BSSGP  accessCapAdditionsAfterRel8 optional
 }
 
 
@@ -787,7 +787,7 @@ variant(gERANToEUTRASupportInGERANPacketTransferMode) "BYTEORDER(last)";
 type record AccessCapAdditionsAfterRel8_BSSGP
 {
   AccessCapAdditionsRel9_BSSGP       accessCapAdditionsRel9,
-  AccessCapAdditionsAfterRel9_BSSGP  accessCapAdditionsAfterRel9
+  AccessCapAdditionsAfterRel9_BSSGP  accessCapAdditionsAfterRel9 optional
 }
 
 type record AccessCapAdditionsRel9_BSSGP
@@ -805,7 +805,7 @@ type record AccessCapAdditionsRel9_BSSGP
 type record AccessCapAdditionsAfterRel9_BSSGP
 {
   AccessCapAdditionsRel10_BSSGP       accessCapAdditionsRel10,
-  AccessCapAdditionsAfterRel10_BSSGP  accessCapAdditionsAfterRel10
+  AccessCapAdditionsAfterRel10_BSSGP  accessCapAdditionsAfterRel10 optional
 }
 
 type record AccessCapAdditionsRel10_BSSGP
@@ -822,7 +822,7 @@ variant(tIGHTER_Capability) "BYTEORDER(last)";
 type record AccessCapAdditionsAfterRel10_BSSGP
 {
   AccessCapAdditionsRel11_BSSGP       accessCapAdditionsRel11,
-  AccessCapAdditionsAfterRel11_BSSGP  accessCapAdditionsAfterRel11
+  AccessCapAdditionsAfterRel11_BSSGP  accessCapAdditionsAfterRel11 optional
 } with {
   variant "FIELDORDER(msb)";
 }
@@ -840,7 +840,7 @@ type record AccessCapAdditionsRel11_BSSGP
 type record AccessCapAdditionsAfterRel11_BSSGP
 {
   AccessCapAdditionsRel12_BSSGP       accessCapAdditionsRel12,
-  AccessCapAdditionsAfterRel12_BSSGP  accessCapAdditionsAfterRel12
+  AccessCapAdditionsAfterRel12_BSSGP  accessCapAdditionsAfterRel12 optional
 } with {
   variant "FIELDORDER(msb)";
 }
@@ -884,7 +884,7 @@ variant(dLMCNonContiguousIntraBandReception) "BYTEORDER(last)";
 type record AccessCapAdditionsAfterRel12_BSSGP
 {
   AccessCapLateAdditionsRel11_BSSGP   accessCapLateAdditionsRel11,
-  octetstring                   accessCapLateAdditionsAfterRel11
+  octetstring                         accessCapLateAdditionsAfterRel11 optional
 } with {
   variant "FIELDORDER(msb)";
 }

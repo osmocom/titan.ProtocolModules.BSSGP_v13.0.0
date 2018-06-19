@@ -9,7 +9,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  File:               BSSGP_EncDec.cc
-//  Rev:                R2A
+//  Rev:                R2B
 //  Prodnr:             CNL 113 833
 //  Contact:            http://ttcn.ericsson.se
 //  Reference:          3GPP TS 48.018 13.0.0
