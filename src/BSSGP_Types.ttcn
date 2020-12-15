@@ -2002,6 +2002,15 @@ RAN_Information_Request_Application_Container_SI3 si3,
 RAN_Information_Request_Application_Container_MBMS_data_channel mBMS_data_channel
 }
 
+/* NOTE: 3GPP TS 48.018 V10.6.0 (2012-07), section 11.3.63.1 describes the
+ * reporting Cell Identifier IE coding as follows: "Reporting Cell Identifier:
+ * This field is encoded as the Cell Identifier defined in sub-clause 11.3.9",
+ * but when looking further at 11.3.63.2 the Cell Identifier IE is described
+ * as "Reporting Cell Identifier: This field is encoded as the value part of
+ * the Cell Identifier IE defined in sub-clause 11.3.9, not including IEI and
+ * Length Indicator." The latter description makes more sense, since
+ * technically the IE and length of the Cell Identifier from 11.3.9 would be
+ * redundant. The same also applies for section 11.3.63.4. */
 
 //Table 11.3.63.1.1
 type record RAN_Information_Request_Application_Container_NACC
@@ -2009,7 +2018,7 @@ type record RAN_Information_Request_Application_Container_NACC
  OCT1                   iEI,
  BIT1                   ext,
  LIN2_2a                lengthIndicator,
- Cell_Identifier        reporting_Cell_Identifier
+ Cell_Identifier_V      reporting_Cell_Identifier
 } with { 
   variant "PRESENCE(iEI = '4D'O)";
   variant (lengthIndicator) "LENGTHTO (reporting_Cell_Identifier)";     
@@ -2024,7 +2033,7 @@ type record RAN_Information_Request_Application_Container_SI3
  OCT1                   iEI,
  BIT1                   ext,
  LIN2_2a                lengthIndicator,
- Cell_Identifier        reporting_Cell_Identifier
+ Cell_Identifier_V      reporting_Cell_Identifier
 } with { 
   variant "PRESENCE(iEI = '4D'O)";
    variant (lengthIndicator) "LENGTHTO (reporting_Cell_Identifier)";     
@@ -2039,7 +2048,7 @@ type record RAN_Information_Request_Application_Container_MBMS_data_channel
  OCT1                   iEI,
  BIT1                   ext,
  LIN2_2a                lengthIndicator,
- Cell_Identifier        reporting_Cell_Identifier
+ Cell_Identifier_V      reporting_Cell_Identifier
 } with { 
   variant "PRESENCE(iEI = '4D'O)";
   variant (lengthIndicator) "LENGTHTO (reporting_Cell_Identifier)";     
@@ -2054,7 +2063,7 @@ type record RAN_Information_Request_Application_Container_SON_transfer
   OCT1                  iEI,
   BIT1                  ext,
   LIN2_2a               lengthIndicator,
-  Cell_Identifier       reporting_Cell_Identifier,
+  Cell_Identifier_V     reporting_Cell_Identifier,
   OCTN                  sON_Transfer_Request_Container
 } with { 
   variant "PRESENCE(iEI = '4D'O)";
@@ -2070,7 +2079,7 @@ type record RAN_Information_Request_Application_Container_UTRA_SI
   OCT1                  iEI,
   BIT1                  ext,
   LIN2_2a               lengthIndicator,
-  Cell_Identifier       reporting_Cell_Identifier
+  Cell_Identifier_V     reporting_Cell_Identifier
 } with { 
   variant "PRESENCE(iEI = '4D'O)";
   variant (lengthIndicator) "LENGTHTO (reporting_Cell_Identifier)";     
@@ -2085,7 +2094,7 @@ type record RAN_Information_Application_Container_NACC
  OCT1                   iEI,
  BIT1                   ext,
  LIN2_2a                lengthIndicator,
- Cell_Identifier        reporting_Cell_Identifier,
+ Cell_Identifier_V      reporting_Cell_Identifier,
  BIT1                   typeBit,
  BIT7                   number_of_SI_PSI,
  octetstring            sI_PSI
@@ -2104,7 +2113,7 @@ type record RAN_Information_Application_Container_SI3
  OCT1                   iEI,
  BIT1                   ext,
  LIN2_2a                lengthIndicator,
- Cell_Identifier        reporting_Cell_Identifier,
+ Cell_Identifier_V      reporting_Cell_Identifier,
  SI3                    sI3
 } with { 
   variant "PRESENCE(iEI = '4E'O)";
@@ -2185,7 +2194,7 @@ type record RAN_Information_Application_Container_MBMS_data_channel
  OCT1                      iEI,
  BIT1                      ext,
  LIN2_2a                   lengthIndicator,
- Cell_Identifier           reporting_Cell_Identifier,
+ Cell_Identifier_V         reporting_Cell_Identifier,
  octetstring               mBMS_data_channel_report  //bit encoded
 } with { 
   variant "PRESENCE(iEI = '4E'O)";
@@ -2204,7 +2213,7 @@ type record RAN_Information_Application_Container_SON_transfer
   LIN2_2a                  lengthIndicator,
   BIT4                     rAT_Discriminator,
   BIT4                     spare,
-  Cell_Identifier          reporting_Cell_Identifier,
+  Cell_Identifier_V        reporting_Cell_Identifier,
   OCTN                     sON_Transfer_Response_Container
 } with { 
   variant "PRESENCE(iEI = '4E'O)";
@@ -2221,7 +2230,7 @@ type record RAN_Information_Application_Container_UTRA_SI
   OCT1                     iEI,
   BIT1                     ext,
   LIN2_2a                  lengthIndicator,
-  Cell_Identifier          reporting_Cell_Identifier,
+  Cell_Identifier_V        reporting_Cell_Identifier,
   OCTN                     uTRA_SI_Container
 } with { 
   variant "PRESENCE(iEI = '4E'O)";
